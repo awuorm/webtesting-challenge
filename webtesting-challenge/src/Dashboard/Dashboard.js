@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Display from '../display/Display';
-import Controls from '../controls/Controls';
+import Display from '../Display/Display';
+import Controls from '../Controls/Controls';
 
 class Dashboard extends React.Component {
   state = {
