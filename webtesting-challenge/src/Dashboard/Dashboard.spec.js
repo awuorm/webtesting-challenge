@@ -24,5 +24,5 @@ describe("Dashboard component", () => {
       });
       test("shows display component", () => {
         expect(wrapperDisplay.queryAllByText(/unlocked/i)).toBeInTheDocument;
-    })
+    });
 })

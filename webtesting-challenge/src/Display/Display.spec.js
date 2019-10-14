@@ -21,11 +21,24 @@ describe(" Display Component", () => {
     test("displays default, 'open' ", () => {
         expect(wrapper.queryByText(/open/i)).toBeInTheDocument();
     });
-    test("displays locked and cannot open get when locked", () => {
+    test("displays locked and cannot open gate when locked", () => {
+        // const  wrapperControls = rtl.render (<Controls locked={{locked: true}}/>);
         expect(wrapper.queryByText(/unlocked/i)).toBeInTheDocument();
         rtl.fireEvent.click(wrapperControls.queryByText(/Lock Gate/i));
         expect(wrapper.queryByText(/locked/i)).toBeInTheDocument();
         // expect(wrapperControls.getByTestId(/open-button/i)).toBeDisabled()
+    });
+    test("displays closed if the closed props is true", () => {
+        const  wrapper = rtl.render (<Display closed="true"/>); // This passes even when false is passed
+        expect(wrapper.queryByText(/closed/i)).toBeInTheDocument();
+    
 
     });
+    test("displays open if the closed props is false", () => {
+        const  wrapper = rtl.render (<Display closed="false"/>); // This passes even when true is passed
+        expect(wrapper.queryByText(/open/i)).toBeInTheDocument();
+    
+
+    });
+
 });
