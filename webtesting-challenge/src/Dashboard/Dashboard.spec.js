@@ -1,18 +1,18 @@
 import React from "react";
 import * as rtl from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-// import Display from "./Display";
 import Controls from "../Controls/Controls";
 import Dashboard from "./Dashboard";
+import Display from "../Display/Display";
 
 afterEach(rtl.cleanup);
 
-let wrapper, wrapperControls;
+let wrapper, wrapperControls, wrapperDisplay;
 
 beforeEach(() => {
     wrapper = rtl.render (<Dashboard/>);
      wrapperControls = rtl.render(<Controls/>);
-    // lockGateButton = wrapper.queryByText(/Lock Gate/i);
+     wrapperDisplay = rtl.render(<Display/>);
 });
 
 describe("Dashboard component", () => {
@@ -20,6 +20,9 @@ describe("Dashboard component", () => {
         expect(wrapper.container).toMatchSnapshot();
       });
       test("shows controls component", () => {
-          expect(wrapperControls.queryByText(/lock gate/i)).toBeInTheDocument;
-      })
+          expect(wrapperControls.queryAllByText(/lock gate/i)).toBeInTheDocument;
+      });
+      test("shows display component", () => {
+        expect(wrapperDisplay.queryAllByText(/unlocked/i)).toBeInTheDocument;
+    })
 })
