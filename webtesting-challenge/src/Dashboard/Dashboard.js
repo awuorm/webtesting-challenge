@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Display from '../Display/Display';
-import Controls from '../Controls/Controls';
+import Display from "../Display/Display";
+import Controls from "../Controls/Controls";
 
 class Dashboard extends React.Component {
   state = {
     locked: false,
-    closed: false,
+    closed: false
   };
 
   render() {
